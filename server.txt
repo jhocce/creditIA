@@ -65,7 +65,7 @@ Fuente: https://www.enmimaquinafunciona.com/pregunta/182259/hay-alguna-manera-de
 
 <VirtualHost *:80>
 
-     ServerName localhost
+     ServerName http://40.67.225.174/
 
      WSGIDaemonProcess hitme user=apache group=apache threads=2
 
@@ -76,3 +76,24 @@ Fuente: https://www.enmimaquinafunciona.com/pregunta/182259/hay-alguna-manera-de
      </Directory>
 
 </VirtualHost>
+
+
+
+
+DocumentRoot /var/www/creditIA
+WSGIDaemonProcess tienda user=www-data group=www-data threads=5
+WSGIScriptAlias / /var/www/creditIA/app.wsgi
+
+<Directory /var/www/creditIA/>
+    WSGIProcessGroup tienda
+    WSGIApplicationGroup %{GLOBAL}
+    Require all granted
+</Directory>
+
+sudo vim /etc/httpd/conf.d/server-status.conf 
+
+# cat /etc/httpd/conf.d/500.conf
+<Location "/500">
+SetHandler 500
+#Require host localhost        #uncomment to only allow requests from localhost
+</Location>
