@@ -1,0 +1,63 @@
+aresqubit.com
+fto
+ftp
+usuario: risk
+password: zq5q#I75
+me dices si funciona
+ese ftp esta apuntando a aresqubit.com/risk
+
+
+git config git-ftp.url "aresqubit.com/risk"
+git config git-ftp.user "ftp-risk"
+git config git-ftp.password "zq5q#I75"
+
+
+
+40.67.225.174
+clave: gArg3z%vxVQ&
+user: aresqubitadmin
+
+ usuario:aresqubit
+password: Cambiame123*
+
+
+
+/home/aresqubitadmin/env/bin/
+
+sudo nano /etc/httpd/sites-available/creditIA.conf
+
+<VirtualHost *:80>
+
+        WSGIDaemonProcess app user=apache group=apache threads=5 python-path=/var/www/creditIA/:/home/aresqubitadmin/env/lib/python3.6/site-packages
+  WSGIScriptAlias / /var/www/creditIA/application.wsgi
+        # You have to add every Flask route as WSGI alias:
+        WSGIScriptAlias /(.*) /var/www/creditIA/application.wsgi/(.*)
+        <Directory /var/www/creditIA/>
+                WSGIProcessGroup creditIA
+                WSGIApplicationGroup %{GLOBAL}
+                Order deny,allow
+                Allow from all
+        </Directory>
+
+        ServerName 40.67.225.174
+        ServerAdmin creditIA@creditIA.com
+        DocumentRoot /var/www/creditIA/
+        # DocumentRoot /home/ubuntu/test
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+        LogLevel warn
+        ErrorLog /var/log/httpd/my_app-error.log
+        CustomLog /var/log/httpd/my_app-access.log combined
+
+</VirtualHost>
+
+
+
+
+
+sudo yum reinstall httpd
+
+Fuente: https://www.enmimaquinafunciona.com/pregunta/182259/hay-alguna-manera-de-restablecer-el-httpdconf-en-centos-a-la-version-originalpor-defecto

@@ -136,6 +136,7 @@ def bad_request(error=None):
 	
 if __name__ == '__main__':
 	app.debug = True
+	app.host = 'X.X.X.X'
 	app.run()
      
 
@@ -160,3 +161,40 @@ if __name__ == '__main__':
 #     'development': DevelopmentConfig,
 #     'production': ProductionConfig
 # }
+
+
+#!/usr/bin/python
+import sys
+sys.path.insert(0, "/var/www/creditIA/")
+from app import app as application
+
+
+# WSGIScriptAlias / /var/www/creditIA/application.wsgi
+# <VirtualHost *:80>
+# 	ServerName 40.67.225.174
+# 	<Directory /var/www/creditIa/>
+# 	    Order deny, allow 
+# 	    Allow from all
+# </Directory>
+
+# </VirtualHost>
+
+# WSGIScriptAlias / /var/www/creditIA/application.wsgi
+
+# <Directory "/var/www/creditIA/">
+#   AllowOverride All
+#   Require all granted
+# </Directory>
+
+
+# sudo vim /etc/httpd/conf/httpd.conf
+
+
+#  journalctl -xe
+
+
+
+#  httpd -M | grep wsgi
+
+
+#  virtualenv venv -p python3
