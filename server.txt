@@ -61,3 +61,18 @@ sudo nano /etc/httpd/sites-available/creditIA.conf
 sudo yum reinstall httpd
 
 Fuente: https://www.enmimaquinafunciona.com/pregunta/182259/hay-alguna-manera-de-restablecer-el-httpdconf-en-centos-a-la-version-originalpor-defecto
+
+
+<VirtualHost *:80>
+
+     ServerName localhost
+
+     WSGIDaemonProcess hitme user=apache group=apache threads=2
+
+     WSGIScriptAlias / /var/www/creditIA/wsgi.py
+
+     <Directory /var/www/creditIA>
+         Require all granted
+     </Directory>
+
+</VirtualHost>
