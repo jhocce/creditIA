@@ -135,8 +135,10 @@ def bad_request(error=None):
 	return resp
 	
 if __name__ == '__main__':
+	
 	app.debug = True
 	app.host = 'X.X.X.X'
+	app.port = int(os.environ.get("PORT", 5000))
 	app.run()
      
 
@@ -164,9 +166,9 @@ if __name__ == '__main__':
 
 
 #!/usr/bin/python
-import sys
-sys.path.insert(0, "/var/www/creditIA/")
-from app import app as application
+# import sys
+# sys.path.insert(0, "/var/www/creditIA/")
+# from app import app as application
 
 
 # WSGIScriptAlias / /var/www/creditIA/application.wsgi
