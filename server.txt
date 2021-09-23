@@ -1,10 +1,4 @@
-aresqubit.com
-fto
-ftp
-usuario: risk
-password: zq5q#I75
-me dices si funciona
-ese ftp esta apuntando a aresqubit.com/risk
+https://github.com/jhocce/creditIA.git
 
 
 git config git-ftp.url "aresqubit.com/risk"
@@ -101,11 +95,11 @@ SetHandler 500
 
 
 
-<VirtualHost *:80>
+<VirtualHost 40.67.225.174:80>
 
      ServerName localhost
 
-     WSGIDaemonProcess hitme user=apache group=apache threads=2
+     WSGIDaemonProcess demoIA user=apache group=apache threads=2
 
      WSGIScriptAlias /demoIA /var/www/creditIA/wsgi.py
 
@@ -118,6 +112,8 @@ SetHandler 500
 
 </VirtualHost>
 
+
+ WSGIScriptAlias /demoIA /var/www/creditIA/wsgi.py
 
 <Directory "/var/www/creditIA" >
         AuthType Basic
@@ -145,3 +141,8 @@ Allow from all
 sudo systemctl restart httpd.service
 sudo vi /etc/httpd/conf.d/python-wsgi.conf
 sudo systemctl restart httpd.service
+
+
+
+
+sudo tail -f /var/log/messages
