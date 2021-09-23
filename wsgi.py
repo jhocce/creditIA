@@ -8,7 +8,7 @@ import site
 # activate_this = '/home/aresqubitadmin/env/bin/activate_this.py'
 # execfile(activate_this, dict(__file__=activate_this))
 
-site.addsitedir('/home/aresqubitadmin/env/lib/python3.6/site-packages')
+# site.addsitedir('/home/aresqubitadmin/env/lib/python3.6/site-packages')
 
 sys.path.insert(0, '/var/www/creditIA')
 
