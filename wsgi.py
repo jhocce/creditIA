@@ -15,7 +15,7 @@ import site
 
 sys.path.insert(0, '/var/www/creditIA')
 
-# from app import app as application
+from app import app as application
 
 
 
