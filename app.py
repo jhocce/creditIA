@@ -10,6 +10,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
+
 #@app.route('/predict', methods=['POST'])
 
 @app.route('/')
@@ -42,11 +44,8 @@ def zero_to_Yes(val):
 def upload_route_summary():
     if request.method == 'POST':
        result = request.files['file']
-       if test.empty:
-		return(bad_request())
        try:
        	result = pd.read_csv(result)
-
        	print("result:", result)
        except Exception as e:
        	raise e
@@ -140,9 +139,9 @@ def bad_request(error=None):
 	
 if __name__ == '__main__':
 	
-	# app.debug = False
-	# # app.host = '0.0.0.0'
-	# app.port = int(os.environ.get("PORT", 80))
+	app.debug = False
+	app.host = '0.0.0.0'
+	app.port = int(os.environ.get("PORT", 80))
 	app.run()
      
 
