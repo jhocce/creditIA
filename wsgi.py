@@ -11,6 +11,17 @@ execfile(activate_this, dict(__file__=activate_this))
 site.addsitedir('/home/aresqubitadmin/env/lib/python3.6/site-packages')
 
 sys.path.insert(0, '/var/www/creditIA')
-from app import app as application
 
 
+# from app import app as application
+
+
+def application(environ, start_response):
+    status = '200 OK'
+    output = b'Hooray, mod_wsgi is working'
+ 
+    response_headers = [('Content-type', 'text/plain'),
+                        ('Content-Length', str(len(output)))]
+    start_response(status, response_headers)
+ 
+    return [output]
