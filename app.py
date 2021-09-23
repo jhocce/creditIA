@@ -136,9 +136,9 @@ def bad_request(error=None):
 	
 if __name__ == '__main__':
 	
-	app.debug = False
-	# app.host = '0.0.0.0'
-	app.port = int(os.environ.get("PORT", 80))
+	# app.debug = False
+	# # app.host = '0.0.0.0'
+	# app.port = int(os.environ.get("PORT", 80))
 	app.run()
      
 
